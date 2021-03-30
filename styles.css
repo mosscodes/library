@@ -1,0 +1,45 @@
+body {
+    font-size: 40px;
+    text-align: center;
+}
+
+.fixed-form-container {
+    overflow: hidden;
+    background-color: lightblue;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    padding: 20;
+}
+
+.your-library {
+    background-image: url(/javascript/library/images/alfons-morales-YLSwjSy7stw-unsplash.jpg);
+    padding: 100px;
+    margin: 0px -20px;
+    height: 300px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.library-container {
+    padding: 20px;
+}
+
+h1 {
+    font-size: 42px;
+    text-align: center;
+}
+
+table, td, th {
+    border: 1px solid black;
+    text-align: center;
+}
+
+table { 
+    width: 100%;
+    border-collapse: collapse;
+}
