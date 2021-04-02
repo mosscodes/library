@@ -1,9 +1,6 @@
 //Todo 
 
-// add a new book button or form depending on the design utilizing the book class
-
-// add an x button to remove the book from the list
-// just a note, remove a table by calculating it's spot on the table and removing that index number in the array
+// Get usable value from checkbox
 
 // add a button to change its read status
 
