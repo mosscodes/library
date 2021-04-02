@@ -11,7 +11,7 @@
 // use an alert if no storage is detected and ask the user what they want to use
 
 
-let myLibrary = [];
+let myLibrary = [{title: "Test", author: "test", pages: 255, read: true}];
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -21,7 +21,7 @@ function Book(title, author, pages, read) {
 }
 
 Book.prototype.readChange = function() {
-    if (this.read === true) {
+    if (this.read === "on") {
         return this.read === false;
     }
     else {
@@ -30,8 +30,11 @@ Book.prototype.readChange = function() {
 }
 
 const tableBody = document.querySelector('tbody')
+const submitBtn = document.getElementById('submit')
+submitBtn.onclick = function() {generateBook(document.getElementById('title').value, document.getElementById('author').value, document.getElementById('pages').value, document.getElementById('read').value)}
 
 function generateLibrary() {
+    //add onclick function to cell3, mimic removeBook in functionality except use readChange 
     for (let i = 0; i < myLibrary.length; i++) {
         const row = tableBody.insertRow(i);
         const cell0 = row.insertCell(0);
@@ -65,6 +68,21 @@ function clearTable() {
 function removeBook(index) {
     myLibrary.splice(index, 1);
     clearTable();
+    generateLibrary();
+}
+
+function clearForm() {
+    document.getElementById('title').value = "";
+    document.getElementById('author').value = "";
+    document.getElementById('pages').value = "";
+    document.getElementById('read').checked = false;
+}
+
+function generateBook(title, author, pages, read) {
+    let newBook = new Book(title, author, pages, read)
+    myLibrary.push(newBook);
+    clearTable();
+    clearForm();
     generateLibrary();
 }
 
