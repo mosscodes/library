@@ -103,3 +103,8 @@ td:nth-child(5):hover {
 .submit-wrapper { 
     padding: 12px 10px;
 }
+
+#read-change-button {
+    margin: 10px;
+    float: right;
+}

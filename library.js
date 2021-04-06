@@ -7,7 +7,11 @@
 // use an alert if no storage is detected and ask the user what they want to use
 
 
-let myLibrary = [{title: "Test", author: "test", pages: 255, read: true}];
+
+//write an onclick function that utilizes readChange and then updates
+
+
+let myLibrary = [];
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -43,9 +47,14 @@ function generateLibrary() {
         const cell3 = row.insertCell(3);
         const cell4 = row.insertCell(4);
         const deleteBtn = document.createElement('button');
+        const changeBtn = document.createElement('button');
         deleteBtn.type = 'button';
         deleteBtn.innerText = "X";
         deleteBtn.onclick = function() {removeBook(i)};
+        changeBtn.type = 'button';
+        changeBtn.innerText = "?";
+        changeBtn.setAttribute('id', 'read-change-button')
+        changeBtn.onclick = function() {changeReadStatus(i)};
         cell0.innerText = myLibrary[i].title;
         cell1.innerText = myLibrary[i].author;
         cell2.innerText = myLibrary[i].pages;
@@ -55,6 +64,7 @@ function generateLibrary() {
         else {
             cell3.innerText = "Not, yet";
         }
+        cell3.appendChild(changeBtn);
         cell4.appendChild(deleteBtn);
     }
 }
@@ -67,6 +77,12 @@ function clearTable() {
 
 function removeBook(index) {
     myLibrary.splice(index, 1);
+    clearTable();
+    generateLibrary();
+}
+
+function changeReadStatus(index) {
+    myLibrary[index].readChange();
     clearTable();
     generateLibrary();
 }
