@@ -1,8 +1,7 @@
 //Todo 
 
-// Get usable value from checkbox
-
 // add a button to change its read status
+// add checks to form
 
 // add localStorage and (maybe) Firebase
 // use an alert if no storage is detected and ask the user what they want to use
@@ -18,17 +17,21 @@ function Book(title, author, pages, read) {
 }
 
 Book.prototype.readChange = function() {
-    if (this.read === "on") {
-        return this.read === false;
+    if (this.read === true) {
+        return this.read = false;
     }
     else {
-        return this.read === true;
+        return this.read = true;
     }
 }
 
 const tableBody = document.querySelector('tbody')
 const submitBtn = document.getElementById('submit')
-submitBtn.onclick = function() {generateBook(document.getElementById('title').value, document.getElementById('author').value, document.getElementById('pages').value, document.getElementById('read').value)}
+submitBtn.onclick = function() {generateBook(document.getElementById('title').value, document.getElementById('author').value, document.getElementById('pages').value, isRead())};
+
+function isRead() {
+    return document.getElementById('read').checked
+}
 
 function generateLibrary() {
     //add onclick function to cell3, mimic removeBook in functionality except use readChange 
@@ -76,6 +79,7 @@ function clearForm() {
 }
 
 function generateBook(title, author, pages, read) {
+
     let newBook = new Book(title, author, pages, read)
     myLibrary.push(newBook);
     clearTable();
