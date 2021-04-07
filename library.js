@@ -1,9 +1,18 @@
 //Todo 
 
-// add localStorage and (maybe) Firebase
-// use an alert if no storage is detected and ask the user what they want to use
+// add localStorage 
+// make functoin that saves whole library array to localStorage everytime a new book is created
+// make function that looks for that array in localStoage when your app is first loaded
 
-let myLibrary = [];
+let myLibrary;
+
+if (localStorage.length === 0) {
+    myLibrary = []
+}
+else {
+    let libraryData = localStorage.getItem("Books")
+    myLibrary = JSON.parse(libraryData);
+}
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -58,6 +67,8 @@ function generateLibrary() {
         cell3.appendChild(changeBtn);
         cell4.appendChild(deleteBtn);
     }
+    localStorage.clear()
+    localStorage.setItem("Books", JSON.stringify(myLibrary))
 }
 
 function clearTable() {
@@ -97,3 +108,4 @@ function generateBook(title, author, pages, read) {
 }
 
 generateLibrary();
+
