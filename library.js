@@ -1,9 +1,3 @@
-//Todo 
-
-// add localStorage 
-// make functoin that saves whole library array to localStorage everytime a new book is created
-// make function that looks for that array in localStoage when your app is first loaded
-
 let myLibrary;
 
 if (localStorage.length === 0) {
