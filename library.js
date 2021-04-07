@@ -1,15 +1,7 @@
 //Todo 
 
-// add a button to change its read status
-// add checks to form
-
 // add localStorage and (maybe) Firebase
 // use an alert if no storage is detected and ask the user what they want to use
-
-
-
-//write an onclick function that utilizes readChange and then updates
-
 
 let myLibrary = [];
 
@@ -38,7 +30,6 @@ function isRead() {
 }
 
 function generateLibrary() {
-    //add onclick function to cell3, mimic removeBook in functionality except use readChange 
     for (let i = 0; i < myLibrary.length; i++) {
         const row = tableBody.insertRow(i);
         const cell0 = row.insertCell(0);
@@ -95,7 +86,9 @@ function clearForm() {
 }
 
 function generateBook(title, author, pages, read) {
-
+    if (title === "" || author === "" || pages === "") {
+        return;
+    }
     let newBook = new Book(title, author, pages, read)
     myLibrary.push(newBook);
     clearTable();
